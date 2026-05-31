@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operator Empire | Digital Product Studio</title>
+  <meta name="description" content="Operator Empire helps creators, coaches, educators, and personal brands turn expertise into digital products people actually buy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050505; --card: rgba(17,17,17,.76); --gold: #C9A44C;
+      --gold2:#E6D08A; --text:#F7F1E5; --muted:#AAA29A;
+      --line: rgba(201,164,76,.22); --shadow: 0 30px 90px rgba(0,0,0,.55);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin:0; color:var(--text); font-family:Inter,system-ui,sans-serif; overflow-x:hidden;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(201,164,76,.18), transparent 36%),
+        radial-gradient(circle at 86% 18%, rgba(201,164,76,.08), transparent 30%),
+        linear-gradient(180deg,#030303 0%,#090909 52%,#030303 100%);
+    }
+    body:before {
+      content:""; position:fixed; inset:0; pointer-events:none; opacity:.24; z-index:-1;
+      background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size:56px 56px; mask-image: radial-gradient(circle at center, black, transparent 76%);
+    }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(1120px, calc(100% - 40px)); margin:0 auto; }
+    header { position:sticky; top:0; z-index:20; backdrop-filter: blur(18px); background:rgba(5,5,5,.72); border-bottom:1px solid rgba(201,164,76,.12); }
+    .nav { height:82px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { display:flex; align-items:center; gap:12px; letter-spacing:.2em; font-weight:800; font-size:13px; text-transform:uppercase; }
+    .brand img { height:50px; width:50px; object-fit:contain; filter:drop-shadow(0 0 18px rgba(201,164,76,.25)); }
+    .nav-links { display:flex; gap:26px; color:var(--muted); font-size:14px; }
+    .nav-links a:hover { color:var(--text); }
+    .btn { display:inline-flex; align-items:center; justify-content:center; border:1px solid rgba(201,164,76,.48); background:linear-gradient(135deg, rgba(201,164,76,.20), rgba(255,255,255,.05)); color:var(--text); padding:14px 22px; border-radius:999px; font-weight:800; box-shadow:0 14px 45px rgba(201,164,76,.12); transition:.2s ease; }
+    .btn:hover { transform:translateY(-2px); border-color:rgba(230,208,138,.85); }
+    .btn.secondary { border-color:rgba(255,255,255,.16); background:rgba(255,255,255,.04); color:var(--muted); box-shadow:none; }
+    .hero { min-height:calc(100vh - 82px); display:grid; place-items:center; position:relative; padding:96px 0 84px; overflow:hidden; text-align:center; }
+    .hero:before { content:""; position:absolute; width:760px; height:760px; border:1px solid rgba(201,164,76,.14); border-radius:50%; top:120px; left:50%; transform:translateX(-50%); box-shadow: inset 0 0 120px rgba(201,164,76,.05); }
+    .hero:after { content:""; position:absolute; width:980px; height:360px; bottom:10%; left:50%; transform:translateX(-50%); background:radial-gradient(circle, rgba(201,164,76,.14), transparent 50%); filter:blur(38px); opacity:.8; }
+    .hero-content { position:relative; z-index:2; max-width:980px; }
+    .hero-logo { width:min(330px, 72vw); display:block; margin:0 auto 34px; filter:drop-shadow(0 26px 65px rgba(201,164,76,.22)); }
+    .eyebrow { color:var(--gold); text-transform:uppercase; letter-spacing:.34em; font-size:12px; font-weight:800; margin-bottom:18px; }
+    h1,h2,h3 { font-family:"Cormorant Garamond", Georgia, serif; font-weight:600; margin:0; line-height:.96; letter-spacing:-.03em; }
+    h1 { font-size:clamp(54px, 9vw, 118px); max-width:980px; margin:0 auto; }
+    .hero p { color:var(--muted); font-size:clamp(17px, 2vw, 22px); line-height:1.7; max-width:760px; margin:28px auto 36px; }
+    .actions { display:flex; justify-content:center; gap:14px; flex-wrap:wrap; margin-bottom:34px; }
+    .audience { color:rgba(247,241,229,.72); letter-spacing:.18em; text-transform:uppercase; font-size:12px; }
+    section { padding:106px 0; position:relative; }
+    .section-head { max-width:790px; margin-bottom:42px; }
+    .section-head.center { text-align:center; margin-left:auto; margin-right:auto; }
+    .section-head h2 { font-size:clamp(44px, 6.2vw, 78px); }
+    .section-head p { color:var(--muted); font-size:18px; line-height:1.75; margin:20px 0 0; }
+    .grid { display:grid; gap:18px; }
+    .three { grid-template-columns:repeat(3,1fr); } .four { grid-template-columns:repeat(4,1fr); } .two { grid-template-columns:repeat(2,1fr); }
+    .card { background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025)), var(--card); border:1px solid rgba(201,164,76,.18); border-radius:28px; padding:28px; min-height:190px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+    .card:before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 18% 0%, rgba(201,164,76,.14), transparent 36%); pointer-events:none; }
+    .card>* { position:relative; z-index:1; }
+    .num { color:var(--gold); font-size:13px; font-weight:800; letter-spacing:.22em; margin-bottom:22px; display:block; }
+    .card h3 { font-size:31px; line-height:1.05; margin-bottom:14px; }
+    .card p { color:var(--muted); line-height:1.7; margin:0; font-size:15.5px; }
+    .split { display:grid; grid-template-columns:1.02fr .98fr; gap:48px; align-items:center; }
+    .pills { display:flex; flex-wrap:wrap; gap:12px; }
+    .pill { padding:13px 16px; border-radius:999px; border:1px solid rgba(201,164,76,.22); background:rgba(255,255,255,.04); color:rgba(247,241,229,.82); font-size:14px; }
+    .visual { min-height:540px; border-radius:38px; border:1px solid rgba(201,164,76,.18); background:radial-gradient(circle at 60% 25%, rgba(201,164,76,.20), transparent 27%), linear-gradient(140deg,#101010,#050505 60%); box-shadow:var(--shadow); position:relative; overflow:hidden; padding:38px; }
+    .visual:before { content:""; position:absolute; width:520px; height:520px; border:1px solid rgba(201,164,76,.16); border-radius:50%; right:-140px; top:-160px; }
+    .mockup { position:absolute; inset:auto 38px 38px 38px; min-height:290px; border-radius:26px; border:1px solid rgba(255,255,255,.14); background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.02)),#070707; padding:28px; display:flex; flex-direction:column; justify-content:space-between; }
+    .mockup-title { font-family:"Cormorant Garamond", Georgia, serif; font-size:48px; line-height:1; }
+    .gold { color:var(--gold2); }
+    .bars { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+    .bar { height:92px; border-radius:18px; background:linear-gradient(180deg, rgba(201,164,76,.22), rgba(255,255,255,.04)); border:1px solid rgba(201,164,76,.13); }
+    .cta { text-align:center; border:1px solid rgba(201,164,76,.18); border-radius:42px; padding:76px 34px; background:radial-gradient(circle at 50% 0%, rgba(201,164,76,.20), transparent 34%), linear-gradient(180deg, rgba(255,255,255,.052), rgba(255,255,255,.02)); box-shadow:var(--shadow); }
+    .cta h2 { font-size:clamp(50px, 7vw, 96px); max-width:850px; margin:0 auto; }
+    .cta p { color:var(--muted); font-size:18px; line-height:1.7; max-width:700px; margin:24px auto 34px; }
+    footer { padding:46px 0; border-top:1px solid rgba(201,164,76,.12); color:rgba(247,241,229,.62); font-size:14px; }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+    .footer-brand { display:flex; align-items:center; gap:12px; letter-spacing:.18em; text-transform:uppercase; color:rgba(247,241,229,.82); font-weight:800; }
+    .footer-brand img { height:44px; width:44px; object-fit:contain; }
+    @media (max-width:900px) {
+      .nav-links { display:none; }
+      .three,.four,.two,.split { grid-template-columns:1fr; }
+      section { padding:76px 0; }
+      .visual { min-height:470px; }
+    }
+    @media (max-width:560px) {
+      .container { width:min(100% - 26px, 1120px); }
+      .nav { height:72px; }
+      .brand span { display:none; }
+      .hero-logo { width:min(270px, 78vw); }
+      .btn { width:100%; }
+      h1 { font-size:52px; }
+      .section-head h2 { font-size:42px; }
+      .cta { padding:56px 22px; border-radius:30px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- IMPORTANT: Replace https://contactoperatorempirecom.zohobookings.com/#/4941706000000041116 with your real Calendly or Google Calendar appointment link. -->
+<header>
+    <div class="container nav">
+      <a href="#" class="brand"><img src="operator-empire-logo.png" alt="Operator Empire logo"><span>Operator Empire</span></a>
+      <nav class="nav-links">
+        <a href="#problem">Problem</a><a href="#services">Services</a><a href="#process">Process</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="btn" href="https://contactoperatorempirecom.zohobookings.com/#/4941706000000041116" target="_blank" rel="noopener">Book a Call</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <img class="hero-logo" src="operator-empire-logo.png" alt="Operator Empire logo">
+        <div class="eyebrow">Digital Product Studio</div>
+        <h1>You don’t need more attention. You need an offer people actually buy.</h1>
+        <p>We help creators turn expertise into clear digital products, premium offers, and simple systems built to convert.</p>
+        <div class="actions">
+          <a class="btn" href="https://contactoperatorempirecom.zohobookings.com/#/4941706000000041116" target="_blank" rel="noopener">Book a Call</a>
+          <a class="btn secondary" href="#services">See Services</a>
+        </div>
+        <div class="audience">For creators, coaches, educators, and personal brands.</div>
+      </div>
+    </section>
+
+    <section id="problem">
+      <div class="container">
+        <div class="section-head center">
+          <div class="eyebrow">The Problem</div>
+          <h2>Most creators have an audience, but no clear product.</h2>
+          <p>Content gets attention. Offers create revenue. We help you package what you know into a product people understand, trust, and want to buy.</p>
+        </div>
+        <div class="grid three">
+          <article class="card"><span class="num">01</span><h3>Unclear offer</h3><p>Your audience likes your content, but they do not clearly understand what they can buy from you.</p></article>
+          <article class="card"><span class="num">02</span><h3>Weak positioning</h3><p>The value is there, but the message, promise, and packaging are not strong enough yet.</p></article>
+          <article class="card"><span class="num">03</span><h3>No product system</h3><p>You need a simple structure that turns attention into a digital product, page, and sales flow.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container split">
+        <div>
+          <div class="section-head">
+            <div class="eyebrow">What We Do</div>
+            <h2>We build the product behind the brand.</h2>
+            <p>Operator Empire helps creators transform knowledge into clear offers, sellable products, and premium systems.</p>
+          </div>
+          <div class="pills"><span class="pill">Creators</span><span class="pill">Coaches</span><span class="pill">Educators</span><span class="pill">Consultants</span><span class="pill">Personal Brands</span></div>
+        </div>
+        <div class="grid two">
+          <article class="card"><span class="num">01</span><h3>Offer Strategy</h3><p>Clarify what you sell, who it is for, and why people should buy.</p></article>
+          <article class="card"><span class="num">02</span><h3>Digital Product Creation</h3><p>Turn expertise into guides, templates, courses, frameworks, or paid resources.</p></article>
+          <article class="card"><span class="num">03</span><h3>Positioning & Packaging</h3><p>Make your offer look premium, simple, and easy to understand.</p></article>
+          <article class="card"><span class="num">04</span><h3>Sales System</h3><p>Build the page, message, and flow that turns attention into income.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head center">
+          <div class="eyebrow">The Process</div>
+          <h2>From expertise to product.</h2>
+          <p>A focused path from raw knowledge to a premium digital product your audience understands.</p>
+        </div>
+        <div class="grid four">
+          <article class="card"><span class="num">01</span><h3>Discover</h3><p>We understand your audience, skills, and current positioning.</p></article>
+          <article class="card"><span class="num">02</span><h3>Package</h3><p>We shape your knowledge into a clear digital product.</p></article>
+          <article class="card"><span class="num">03</span><h3>Build</h3><p>We create the assets, structure, and sales page.</p></article>
+          <article class="card"><span class="num">04</span><h3>Launch</h3><p>You get a clean system ready to promote and sell.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="results">
+      <div class="container split">
+        <div class="visual">
+          <div class="eyebrow">Premium Product System</div>
+          <div class="mockup">
+            <div class="mockup-title">Simple offers.<br><span class="gold">Better conversions.</span></div>
+            <div class="bars"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+          </div>
+        </div>
+        <div class="section-head">
+          <div class="eyebrow">The Result</div>
+          <h2>Simple offers. Premium packaging. Better conversions.</h2>
+          <p>The goal is not to sell everything. The goal is to build one clear product your audience actually wants.</p>
+          <a class="btn" href="https://contactoperatorempirecom.zohobookings.com/#/4941706000000041116" target="_blank" rel="noopener">Book a Call</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="cta">
+          <div class="eyebrow">Ready To Build?</div>
+          <h2>Let’s build something people buy.</h2>
+          <p>Choose a time that works for you. We’ll review your audience, expertise, and product idea, then suggest the best next step.</p>
+          <div class="actions">
+            <a class="btn secondary" href="mailto:contact@operatorempire.com">Email Us</a>
+            <a class="btn secondary" href="#services">See Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand"><img src="operator-empire-logo.png" alt="Operator Empire logo"><span>Operator Empire</span></div>
+      <div>© 2026 Operator Empire. All rights reserved.</div>
+      <a href="mailto:contact@operatorempire.com">contact@operatorempire.com</a>
+    </div>
+  </footer>
+</body>
+</html>
